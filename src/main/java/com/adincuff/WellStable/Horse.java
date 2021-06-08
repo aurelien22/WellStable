@@ -1,11 +1,13 @@
 package com.adincuff.WellStable;
 
+import lombok.Data;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import java.util.Date;
 
+@Data
 @Entity
 public class Horse {
 
@@ -13,6 +15,7 @@ public class Horse {
     @GeneratedValue
     private Long id;
 
+    @Column(nullable = false)
     private String ueln;
 
     @Column(nullable = false)
@@ -21,88 +24,34 @@ public class Horse {
     @Column(nullable = false)
     private String name;
 
+    @Column(nullable = false)
     private String race;
 
+    @Column(nullable = false)
     private String genre;
 
+    @Column(nullable = false)
     private String color;
 
-    private Date dateOfBirth;
-
-    public Horse() {
-    }
-
-    public Horse(String ueln, String sire, String name, String race, String genre, String color, Date dateOfBirth) {
+    /*
+    public Horse(String ueln, String sire, String name, String race, String genre, String color) {
         this.ueln = ueln;
         this.sire = sire;
         this.name = name;
         this.race = race;
         this.genre = genre;
         this.color = color;
-        this.dateOfBirth = dateOfBirth;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
+    public Horse(Long id, String ueln, String sire, String name, String race, String genre, String color) {
         this.id = id;
-    }
-
-    public String getUeln() {
-        return ueln;
-    }
-
-    public void setUeln(String ueln) {
         this.ueln = ueln;
-    }
-
-    public String getSire() {
-        return sire;
-    }
-
-    public void setSire(String sire) {
         this.sire = sire;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
         this.name = name;
-    }
-
-    public String getRace() {
-        return race;
-    }
-
-    public void setRace(String race) {
         this.race = race;
-    }
-
-    public String getGenre() {
-        return genre;
-    }
-
-    public void setGenre(String genre) {
         this.genre = genre;
-    }
-
-    public String getColor() {
-        return color;
-    }
-
-    public void setColor(String color) {
         this.color = color;
     }
 
-    public Date getDateOfBirth() {
-        return dateOfBirth;
-    }
-
-    public void setDateOfBirth(Date dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
-    }
+     */
 }

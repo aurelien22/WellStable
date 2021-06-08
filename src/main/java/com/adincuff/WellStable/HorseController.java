@@ -2,11 +2,9 @@ package com.adincuff.WellStable;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -24,6 +22,17 @@ public class HorseController {
     @GetMapping("/{id}")
     public ResponseEntity<Horse> getHorseById(@PathVariable("id") Long id) {
         return ResponseEntity.ok(horseService.getHorseById(id));
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Horse> updateHorse(@PathVariable("id") Long id, @Valid @RequestBody HorseRequest horseRequest) {
+        return ResponseEntity.ok(horseService.updateHorse(id, horseRequest));
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteHorse(@PathVariable("id") Long id) {
+        horseService.deleteHorseById(id);
+        return ResponseEntity.ok().build();
     }
 
 }
